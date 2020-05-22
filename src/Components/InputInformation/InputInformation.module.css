@@ -1,0 +1,25 @@
+.root {
+}
+
+.input_section {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+	margin-top: 100px;
+	margin-bottom: 50px;
+}
+
+.form {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-evenly;
+}
+
+.input_field {
+	width: 50vh;
+}
+
+.form_image {
+	height: 50vh;
+	width: 50vh;
+}
