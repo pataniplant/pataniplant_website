@@ -1,0 +1,25 @@
+.choose_gift {
+	margin-top: 100px;
+}
+
+.gift_list {
+	margin-top: 30px;
+	margin-bottom: 30px;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+	padding: 0;
+}
+
+.gift_card {
+	display: inline-block;
+	width: 15vw;
+	min-width: 200px;
+}
+
+.gift_image {
+	width: 15vw;
+	height: 15vw;
+	min-width: 200px;
+	min-height: 200px;
+}

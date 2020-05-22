@@ -1,0 +1,15 @@
+.root {
+	display: grid;
+	grid-template-columns: 1fr 5fr 1fr;
+	row-gap: 100px;
+}
+
+.choosing_gift {
+	grid-column: 2/3;
+}
+
+.input_information {
+	padding-top: 130px;
+	grid-column: 2/3;
+	margin-bottom: 150px;
+}
