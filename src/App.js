@@ -7,6 +7,7 @@ import { NavigationBar, Footer } from './Components';
 class App extends React.Component {
 	componentDidMount() {
 		document.title = 'Pataniplant';
+		console.log(process.env.NODE_ENV);
 	}
 
 	render() {
