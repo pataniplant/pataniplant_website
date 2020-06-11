@@ -2,7 +2,7 @@ import React from 'react';
 import { ChoosingGift, InputInformation } from '../../Components';
 import styles from './GiftPage.module.css';
 
-class Gift extends React.Component {
+class GiftPage extends React.Component {
 	constructor(props) {
 		super(props);
 		this.inputRef = React.createRef();
@@ -29,4 +29,4 @@ class Gift extends React.Component {
 	}
 }
 
-export default Gift;
+export default GiftPage;

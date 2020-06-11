@@ -52,6 +52,14 @@ class ChoosingGift extends React.Component {
 		this.props.dispatch(chooseGift(id));
 	};
 
+	handleSubmit = () => {
+		if (this.props.giftChoice in ['1', '2', '3', '4']) {
+			this.props.scrollToInput();
+		} else {
+			alert('Hãy chọn một món quà trước khi tiếp tục');
+		}
+	};
+
 	render() {
 		const renderedList = giftList.map((gift) => {
 			return (
@@ -69,22 +77,23 @@ class ChoosingGift extends React.Component {
 							className={styles.gift_image}
 						/>
 						<CardContent>
+							<Typography>{gift.name}</Typography>
 							<Typography>{gift.description}</Typography>
-						</CardContent>
 
-						<Typography>
-							Giá: {gift.price ? gift.price : 'Miễn Phí'}
-						</Typography>
-						<Radio
-							color='default'
-							checked={this.props.giftChoice === gift.id}
-						/>
+							<Typography>
+								Giá: {gift.price ? gift.price : 'Miễn Phí'}
+							</Typography>
+							<Radio
+								color='default'
+								checked={this.props.giftChoice === gift.id}
+							/>
+						</CardContent>
 					</CardActionArea>
 				</Card>
 			);
 		});
 
-		console.log(this.props.scrollToInput);
+		// console.log(this.props.scrollToInput);
 
 		return (
 			<div className={styles.choose_gift}>
@@ -95,7 +104,7 @@ class ChoosingGift extends React.Component {
 				<Button
 					size='large'
 					variant='outlined'
-					onClick={this.props.scrollToInput}
+					onClick={this.handleSubmit}
 				>
 					Tiếp Tục
 				</Button>
