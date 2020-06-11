@@ -1,13 +1,12 @@
 import React from 'react';
 import './App.css';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import Gift from './Pages/GiftPage/GiftPage';
+import { GiftPage, MainProductPage } from './Pages';
 import { NavigationBar, Footer } from './Components';
 
 class App extends React.Component {
 	componentDidMount() {
 		document.title = 'Pataniplant';
-		console.log(process.env.NODE_ENV);
 	}
 
 	render() {
@@ -16,8 +15,9 @@ class App extends React.Component {
 				<Router>
 					<NavigationBar />
 					<Switch>
-						<Route path='/' component={Gift} />
-						<Route path='/gift' component={Gift} />
+						<Route exact path='/' component={GiftPage} />
+						<Route path='/gift' component={GiftPage} />
+						<Route path='/product' component={MainProductPage} />
 					</Switch>
 					<Footer />
 				</Router>

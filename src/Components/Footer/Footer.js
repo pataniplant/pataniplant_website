@@ -1,5 +1,5 @@
 import React from 'react';
-import { Typography, Icon } from '@material-ui/core';
+import { Typography } from '@material-ui/core';
 import { Favorite } from '@material-ui/icons';
 import styles from './Footer.module.css';
 

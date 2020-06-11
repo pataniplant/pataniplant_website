@@ -1,0 +1,38 @@
+.root {
+	display: flex;
+	flex-direction: row;
+	padding: 30px 30px 30px 30px;
+	margin-top: 50px;
+	border: 1px solid #000000;
+	border-radius: 22px;
+}
+
+.product_image {
+	width: 15vw;
+	height: 15vw;
+}
+
+.name_description {
+	display: flex;
+	flex-direction: column;
+	margin-left: 70px;
+}
+
+.name {
+	text-align: left;
+	font-size: 70px;
+	margin-top: 0;
+	margin-bottom: 20px;
+}
+
+.description {
+	text-align: left;
+	font-size: 20px;
+}
+
+.options {
+	margin-left: 70px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+}

@@ -1,0 +1,12 @@
+.popup_content {
+	display: flex;
+	flex-direction: row;
+}
+
+.name {
+	font-size: 50px;
+}
+
+.amount_field {
+	margin: auto auto auto 50px !important;
+}

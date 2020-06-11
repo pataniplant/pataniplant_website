@@ -1,0 +1,16 @@
+.root {
+	margin-top: 64px;
+	margin-bottom: 50px;
+	min-height: calc(100vh - 81px - 64px);
+	display: grid;
+	grid-template-columns: 1fr 5fr 1fr;
+}
+
+.title {
+	grid-column: 2/3;
+	font-size: 70px;
+}
+
+.product_cards {
+	grid-column: 2/3;
+}
