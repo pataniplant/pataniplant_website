@@ -5,6 +5,7 @@ import Footer from './Footer/Footer';
 import ProductCard from './ProductCard/ProductCard';
 import NotifyPopup from './NotifyPopup/NotifyPopup';
 import ProductInfoPopup from './ProductInfoPopup/ProductInfoPopup';
+import AddToCartPopup from './AddToCartPopup/AddToCartPopup';
 
 export {
 	ChoosingGift,
@@ -14,4 +15,5 @@ export {
 	ProductCard,
 	NotifyPopup,
 	ProductInfoPopup,
+	AddToCartPopup,
 };

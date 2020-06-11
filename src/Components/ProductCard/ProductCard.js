@@ -1,6 +1,8 @@
 import React from 'react';
 import { Button } from '@material-ui/core';
-import { ProductInfoPopup } from '../';
+import { ProductInfoPopup, AddToCartPopup } from '../';
+import { modifyOrder } from '../../Redux/Actions';
+import { connect } from 'react-redux';
 
 import styles from './ProductCard.module.css';
 
@@ -9,6 +11,7 @@ class ProductCard extends React.Component {
 		super(props);
 		this.state = {
 			productPopup: false,
+			addToCartPopup: false,
 		};
 	}
 
@@ -24,6 +27,29 @@ class ProductCard extends React.Component {
 		});
 	};
 
+	handleClickAddToCart = () => {
+		this.setState({
+			addToCartPopup: true,
+		});
+	};
+
+	handleCloseAddToCart = () => {
+		this.setState({
+			addToCartPopup: false,
+		});
+	};
+
+	handleSubmitAddToCart = async (amount) => {
+		if (amount < 0) {
+			alert('số lượng không được là số âm');
+			return;
+		}
+		await this.props.dispatch(modifyOrder(this.props.product.id, amount));
+		this.setState({
+			addToCartPopup: false,
+		});
+	};
+
 	render() {
 		const product = this.props.product;
 		const infoPopup = (
@@ -32,6 +58,20 @@ class ProductCard extends React.Component {
 				name={product.name}
 				description={product.description}
 				onClose={this.handleCloseSeeMore}
+			/>
+		);
+		const addToCartPopup = (
+			<AddToCartPopup
+				open={this.state.addToCartPopup}
+				submitting={this.props.submitting}
+				name={product.name}
+				onClose={this.handleCloseAddToCart}
+				onSubmit={this.handleSubmitAddToCart}
+				amount={
+					product.id in this.props.productOrdered
+						? this.props.productOrdered[product.id]
+						: 1
+				}
 			/>
 		);
 		return (
@@ -54,14 +94,27 @@ class ProductCard extends React.Component {
 					>
 						xem thêm
 					</Button>
-					<Button variant='contained' color='primary' size='large'>
+					<Button
+						variant='contained'
+						color='primary'
+						size='large'
+						onClick={this.handleClickAddToCart}
+					>
 						thêm vào giỏ hàng
 					</Button>
 				</div>
 				{infoPopup}
+				{addToCartPopup}
 			</div>
 		);
 	}
 }
 
-export default ProductCard;
+const mapStateToProps = (state) => {
+	return {
+		submitting: state.submitting,
+		productOrdered: state.productOrdered,
+	};
+};
+
+export default connect(mapStateToProps)(ProductCard);

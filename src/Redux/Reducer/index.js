@@ -3,6 +3,7 @@ import {
 	SET_CUSTOMER_INFORMATION,
 	SET_SUBMITTING_STATUS,
 	SET_ORDER_ID,
+	SET_PRODUCT_AMOUNT,
 } from '../Actions';
 
 const initialState = {
@@ -13,6 +14,7 @@ const initialState = {
 	address: '',
 	submitting: false,
 	orderId: '',
+	productOrdered: {},
 };
 
 function reducer(state = initialState, action) {
@@ -36,6 +38,13 @@ function reducer(state = initialState, action) {
 	if (type === SET_ORDER_ID) {
 		return Object.assign({}, state, {
 			orderId: payload,
+		});
+	}
+	if (type === SET_PRODUCT_AMOUNT) {
+		let currentOrder = state.productOrdered;
+		currentOrder[payload.productId] = payload.amount;
+		return Object.assign({}, state, {
+			productOrdered: currentOrder,
 		});
 	}
 	return state;
